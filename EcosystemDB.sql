@@ -346,6 +346,8 @@ CREATE INDEX idx_species_name ON Species(name);
 -- @block
 SELECT * FROM Species;
 -- @block
+-- reminder for the command for double checking the connection is closed: netstat -an | findstr 5432
+
 
 -- @block
 
