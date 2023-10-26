@@ -325,8 +325,15 @@ JOIN Population p ON h.habitat_id = p.habitat_id
 GROUP BY h.name;
 
 -- @block
+SELECT species_id, count, SUM(count) OVER (PARTITION BY species_id ORDER BY last_counted)
+FROM Population;
+
 
 -- @block
+SELECT species_id
+FROM Population
+GROUP BY species_id
+HAVING AVG(count) = (SELECT MAX(AVG(count)) FROM Population GROUP BY species_id);
 
 -- @block
 
